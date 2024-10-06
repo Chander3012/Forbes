@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>live coin price</title>
+    <link rel="stylesheet" href="css/coinlive.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="header">
+            <nav class="navbar">
+                <img src="images/logo.png" alt="logo">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="card.html">Menu</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="navside">
+            <h1>Pages</h1>
+            <ul>
+                <li><a href="coinlive.html">Coins Live Count</a></li>
+                <li><a href="news.html">News And Updates</a></li>
+                <li><a href="games.html">Learn And Earn</a></li>
+                <li><a href="mining.html">Ways to Mining</a></li>
+                <li><a href="deepweb.html">DeepWeb and Frauds</a></li>
+                <li><a href="upcoming.html">Upcoming</a></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <script src="https://www.cryptohopper.com/widgets/js/script"></script>
+            <div class="cryptohopper-web-widget" data-id="2" data-realtime="on" data-currency="INR" data-ticker_design="2"></div>
+            <div id="coinlive"></div>
+            <script src="https://price-static.crypto.com/latest/public/static/widget/index.js"></script>
+            <div id="crypto-widget-CoinTicker" data-design="classic" data-coin-ids="1"></div>
+            <div id="coin1"></div>
+            <script src="https://www.cryptohopper.com/widgets/js/script"></script>
+            <div class="cryptohopper-web-widget" data-id="1" data-price_format="2" data-currency="INR"></div>
+        </div>
+        <div class="footer">
+            <h1>right@2024</h1>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Fetch the content of content.html
+            fetch('import.html')
+                .then(response => response.text())
+                .then(data => {
+                    // Extract the content for Page 1
+                    let page1Content = new DOMParser().parseFromString(data, 'text/html').getElementById('coinlive').innerHTML;
+                    // Insert the fetched content into Page 1
+                    document.getElementById('coinlive').innerHTML = page1Content;
+                })
+                .catch(error => console.error('Error fetching content:', error));
+        });
+        window.addEventListener('DOMContentLoaded', (event) => {
+                // Fetch the content of content.html
+                fetch('import.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        // Extract the content for Page 1
+                        let page1Content = new DOMParser().parseFromString(data, 'text/html').getElementById('coin1').innerHTML;
+                        // Insert the fetched content into Page 1
+                        document.getElementById('coin1').innerHTML = page1Content;
+                    })
+                    .catch(error => console.error('Error fetching content:', error));
+            });
+    </script>
+</body>
+</html>
